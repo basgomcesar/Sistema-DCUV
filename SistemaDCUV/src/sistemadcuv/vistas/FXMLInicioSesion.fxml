@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="sistemadcuv.controladores.FXMLInicioSesionController">
+   <children>
+      <Label layoutX="419.0" layoutY="124.0" text="Matricula / Numero de personal" />
+      <TextField layoutX="419.0" layoutY="159.0" />
+      <Label layoutX="419.0" layoutY="214.0" text="Contraseña" />
+      <PasswordField layoutX="419.0" layoutY="241.0" />
+   </children>
+</AnchorPane>
