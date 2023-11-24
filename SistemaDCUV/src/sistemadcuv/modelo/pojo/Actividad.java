@@ -1,28 +1,38 @@
 package sistemadcuv.modelo.pojo;
 
-public class Proyecto {
+public class Actividad {
     
-    private String nombre;
+    private String titulo;
+    private String descripcion;
     private String estado;
     private String fechaInicio;
     private String fechaFin;
 
-    public Proyecto() {
+    public Actividad() {
     }
 
-    public Proyecto(String nombre, String estado, String fechaInicio, String fechaFin) {
-        this.nombre = nombre;
+    public Actividad(String titulo, String descripcion, String estado, String fechaInicio, String fechaFin) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
         this.estado = estado;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getEstado() {

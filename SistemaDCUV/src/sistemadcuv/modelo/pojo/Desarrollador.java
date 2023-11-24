@@ -40,10 +40,5 @@ public class Desarrollador {
     public void setSemestre(int semestre) {
         this.semestre = semestre;
     }
-
-    @Override
-    public String toString() {
-        return "Desarrollador{" + "nombreCompleto=" + nombreCompleto + ", estado=" + estado + ", matricula=" + matricula + ", semestre=" + semestre + '}';
-    }
         
 }
