@@ -1,4 +1,4 @@
-package modelo.dao;
+package sistemadcuv.modelo.dao;
 
 public class DesarrolladorDAO {
     
