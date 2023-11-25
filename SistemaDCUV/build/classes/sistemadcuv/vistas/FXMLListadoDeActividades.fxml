@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: #F2F2F2; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="sistemadcuv.controladores.FXMLListadoDeActividadesController">
+   <children>
+      <Pane prefHeight="450.0" prefWidth="83.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/ActividadesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/cambiosIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/solicitudesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="19.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/defectosIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/participantesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/bitacoraIcon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="9.0" layoutY="75.0" text="Actividades" textFill="#000000c1" />
+            <Label layoutX="17.0" layoutY="138.0" text="Cambios" />
+            <Label layoutX="9.0" layoutY="202.0" text="Solicitudes" />
+            <Label layoutX="14.0" layoutY="281.0" text="Defectos" />
+            <Label layoutX="4.0" layoutY="340.0" text="Participantes" />
+            <Label layoutX="18.0" layoutY="404.0" text="Bitacora" />
+         </children>
+      </Pane>
+      <Label layoutX="98.0" layoutY="79.0" text="Actividades">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="134.0" layoutY="116.0" prefHeight="30.0" prefWidth="226.0" promptText="Buscar por nombre" style="-fx-background-radius: 30;" />
+      <TableView layoutX="134.0" layoutY="171.0" prefHeight="200.0" prefWidth="636.0">
+        <columns>
+          <TableColumn prefWidth="139.99996948242188" text="Nombre" />
+          <TableColumn prefWidth="105.33334350585938" text="Estatus" />
+            <TableColumn minWidth="3.3333740234375" prefWidth="113.33331298828125" text="Desarrollador" />
+            <TableColumn minWidth="2.66668701171875" prefWidth="126.0" text="Fecha Inicio" />
+            <TableColumn prefWidth="148.0" text="Fecha Fin" />
+        </columns>
+      </TableView>
+      <DatePicker layoutX="516.0" layoutY="118.0" prefHeight="25.0" prefWidth="83.0" />
+      <DatePicker layoutX="675.0" layoutY="118.0" prefHeight="25.0" prefWidth="83.0" />
+      <Label layoutX="467.0" layoutY="124.0" text="Desde">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="627.0" layoutY="123.0" text="hasta">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="609.0" layoutY="32.0" text="Usuario XXX">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
