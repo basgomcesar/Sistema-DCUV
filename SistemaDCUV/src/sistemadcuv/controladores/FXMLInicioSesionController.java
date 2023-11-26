@@ -1,7 +1,10 @@
 package sistemadcuv.controladores;
 
+import Utils.Utilidades;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 <<<<<<< Updated upstream
 =======
@@ -13,6 +16,12 @@ import sistemadcuv.utils.Utilidades;
 
 
 public class FXMLInicioSesionController implements Initializable {
+
+    @FXML
+    private TextField tfUsuario;
+    @FXML
+    private PasswordField tfContrasenia;
+    String formato = "zs[0-9]{8}";
 
 
     @Override
