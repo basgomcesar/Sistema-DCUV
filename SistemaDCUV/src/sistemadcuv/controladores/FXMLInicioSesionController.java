@@ -1,18 +1,17 @@
 package sistemadcuv.controladores;
 
-import Utils.Utilidades;
+import sistemadcuv.utils.Utilidades;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-<<<<<<< Updated upstream
-=======
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sistemadcuv.utils.Utilidades;
->>>>>>> Stashed changes
+
 
 
 public class FXMLInicioSesionController implements Initializable {
@@ -28,8 +27,6 @@ public class FXMLInicioSesionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-<<<<<<< Updated upstream
-=======
 
     @FXML
     private void iniciarSesion(ActionEvent event) {
@@ -58,6 +55,5 @@ public class FXMLInicioSesionController implements Initializable {
     private boolean esFormatoValido() {
         return tfUsuario.getText().matches(formato);
     }
->>>>>>> Stashed changes
     
 }

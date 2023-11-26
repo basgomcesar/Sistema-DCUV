@@ -11,14 +11,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: #F2F2F2; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="sistemadcuv.controladores.FXMLListadoDeActividadesController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: #F2F2F2; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemadcuv.controladores.FXMLListadoDeActividadesController">
    <children>
       <Pane prefHeight="450.0" prefWidth="83.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
          <children>
             <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../recursos/ActividadesIcon.png" />
+                  <Image url="@../../recursos/iconActividadesSelected.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
@@ -54,13 +53,13 @@
             <Label layoutX="18.0" layoutY="404.0" text="Bitacora" />
          </children>
       </Pane>
-      <Label layoutX="98.0" layoutY="79.0" text="Actividades">
+      <Label layoutX="128.0" layoutY="42.0" text="Actividades">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="134.0" layoutY="116.0" prefHeight="30.0" prefWidth="226.0" promptText="Buscar por nombre" style="-fx-background-radius: 30;" />
-      <TableView layoutX="134.0" layoutY="171.0" prefHeight="200.0" prefWidth="636.0">
+      <TextField layoutX="134.0" layoutY="94.0" prefHeight="30.0" prefWidth="226.0" promptText="Buscar por nombre" style="-fx-background-radius: 30;" />
+      <TableView layoutX="134.0" layoutY="149.0" prefHeight="222.0" prefWidth="636.0">
         <columns>
           <TableColumn prefWidth="139.99996948242188" text="Nombre" />
           <TableColumn prefWidth="105.33334350585938" text="Estatus" />
@@ -69,14 +68,14 @@
             <TableColumn prefWidth="148.0" text="Fecha Fin" />
         </columns>
       </TableView>
-      <DatePicker layoutX="516.0" layoutY="118.0" prefHeight="25.0" prefWidth="83.0" />
-      <DatePicker layoutX="675.0" layoutY="118.0" prefHeight="25.0" prefWidth="83.0" />
-      <Label layoutX="467.0" layoutY="124.0" text="Desde">
+      <DatePicker layoutX="519.0" layoutY="96.0" prefHeight="25.0" prefWidth="83.0" />
+      <DatePicker layoutX="678.0" layoutY="96.0" prefHeight="25.0" prefWidth="83.0" />
+      <Label layoutX="470.0" layoutY="102.0" text="Desde">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="627.0" layoutY="123.0" text="hasta">
+      <Label layoutX="630.0" layoutY="101.0" text="hasta">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
