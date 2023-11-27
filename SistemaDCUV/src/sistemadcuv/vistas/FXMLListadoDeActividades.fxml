@@ -13,46 +13,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: #F2F2F2; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemadcuv.controladores.FXMLListadoDeActividadesController">
    <children>
-      <Pane prefHeight="450.0" prefWidth="83.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
-         <children>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../recursos/iconActividadesSelected.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../recursos/cambiosIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../recursos/solicitudesIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="19.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../recursos/defectosIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../recursos/participantesIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../recursos/bitacoraIcon.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="9.0" layoutY="75.0" text="Actividades" textFill="#000000c1" />
-            <Label layoutX="17.0" layoutY="138.0" text="Cambios" />
-            <Label layoutX="9.0" layoutY="202.0" text="Solicitudes" />
-            <Label layoutX="14.0" layoutY="281.0" text="Defectos" />
-            <Label layoutX="4.0" layoutY="340.0" text="Participantes" />
-            <Label layoutX="18.0" layoutY="404.0" text="Bitacora" />
-         </children>
-      </Pane>
       <Label layoutX="128.0" layoutY="42.0" text="Actividades">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -80,10 +40,50 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="609.0" layoutY="32.0" text="Usuario XXX">
+      <Label fx:id="lbUsuarioActivo" layoutX="609.0" layoutY="32.0" text="Usuario XXX">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <Pane prefHeight="450.0" prefWidth="71.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="17.0" layoutY="162.0" onMouseClicked="#btnSolicitudes" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/solicitudesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="18.0" layoutY="33.0" onMouseClicked="#btnActividades" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/iconActividadesSelected.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="18.0" layoutY="99.0" onMouseClicked="#btnCambios" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/cambiosIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="19.0" layoutY="240.0" onMouseClicked="#btnDefectos" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/defectosIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="19.0" layoutY="308.0" onMouseClicked="#btnParticipantes" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/participantesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="30.0" layoutX="19.0" layoutY="371.0" onMouseClicked="#btnBitacora" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/bitacoraIcon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="3.0" layoutY="64.0" text="Actividades" textFill="#000000c1" />
+            <Label layoutX="8.0" layoutY="128.0" text="Cambios" />
+            <Label layoutX="7.0" layoutY="199.0" text="Solicitudes" />
+            <Label layoutX="8.0" layoutY="271.0" text="Defectos" />
+            <Label layoutX="2.0" layoutY="332.0" text="Participantes" />
+            <Label layoutX="13.0" layoutY="401.0" text="Bitacora" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
