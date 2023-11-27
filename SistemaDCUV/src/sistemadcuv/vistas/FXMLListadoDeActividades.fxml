@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: #F2F2F2; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemadcuv.controladores.FXMLListadoDeActividadesController">
+   <children>
+      <Label layoutX="128.0" layoutY="42.0" text="Actividades">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="134.0" layoutY="94.0" prefHeight="30.0" prefWidth="226.0" promptText="Buscar por nombre" style="-fx-background-radius: 30;" />
+      <TableView layoutX="134.0" layoutY="149.0" prefHeight="222.0" prefWidth="636.0">
+        <columns>
+          <TableColumn prefWidth="139.99996948242188" text="Nombre" />
+          <TableColumn prefWidth="105.33334350585938" text="Estatus" />
+            <TableColumn minWidth="3.3333740234375" prefWidth="113.33331298828125" text="Desarrollador" />
+            <TableColumn minWidth="2.66668701171875" prefWidth="126.0" text="Fecha Inicio" />
+            <TableColumn prefWidth="148.0" text="Fecha Fin" />
+        </columns>
+      </TableView>
+      <DatePicker layoutX="519.0" layoutY="96.0" prefHeight="25.0" prefWidth="83.0" />
+      <DatePicker layoutX="678.0" layoutY="96.0" prefHeight="25.0" prefWidth="83.0" />
+      <Label layoutX="470.0" layoutY="102.0" text="Desde">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="630.0" layoutY="101.0" text="hasta">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbUsuarioActivo" layoutX="609.0" layoutY="32.0" text="Usuario XXX">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Pane prefHeight="450.0" prefWidth="71.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="17.0" layoutY="162.0" onMouseClicked="#btnSolicitudes" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/solicitudesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="18.0" layoutY="33.0" onMouseClicked="#btnActividades" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/iconActividadesSelected.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="18.0" layoutY="99.0" onMouseClicked="#btnCambios" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/cambiosIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="19.0" layoutY="240.0" onMouseClicked="#btnDefectos" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/defectosIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="19.0" layoutY="308.0" onMouseClicked="#btnParticipantes" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/participantesIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="38.0" fitWidth="30.0" layoutX="19.0" layoutY="371.0" onMouseClicked="#btnBitacora" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../recursos/bitacoraIcon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="3.0" layoutY="64.0" text="Actividades" textFill="#000000c1" />
+            <Label layoutX="8.0" layoutY="128.0" text="Cambios" />
+            <Label layoutX="7.0" layoutY="199.0" text="Solicitudes" />
+            <Label layoutX="8.0" layoutY="271.0" text="Defectos" />
+            <Label layoutX="2.0" layoutY="332.0" text="Participantes" />
+            <Label layoutX="13.0" layoutY="401.0" text="Bitacora" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
