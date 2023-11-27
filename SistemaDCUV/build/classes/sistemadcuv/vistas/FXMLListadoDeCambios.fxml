@@ -14,7 +14,7 @@
 
 <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: F2F2F2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView editable="true" layoutX="101.0" layoutY="99.0" minHeight="-Infinity" prefHeight="327.0" prefWidth="627.0">
+      <TableView editable="true" layoutX="101.0" layoutY="99.0" minHeight="-Infinity" prefHeight="327.0" prefWidth="663.0">
          <columns>
             <TableColumn prefWidth="118.0" sortType="DESCENDING" text="Nombre" />
             <TableColumn prefWidth="145.0" text="Estatus" />
@@ -46,7 +46,7 @@
             <Font name="Arial Bold" size="32.0" />
          </font>
       </Label>
-      <Button layoutX="709.0" layoutY="398.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: #426B1F; -fx-background-radius: 50;" text="+" textFill="WHITE">
+      <Button layoutX="748.0" layoutY="407.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: #426B1F; -fx-background-radius: 50;" text="+" textFill="WHITE">
          <effect>
             <DropShadow color="#a5abaa" height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
          </effect>
@@ -64,44 +64,44 @@
             <Font name="Berlin Sans FB Demi Bold" size="16.0" />
          </font>
       </Label>
-      <Pane prefHeight="450.0" prefWidth="83.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
+      <Pane prefHeight="450.0" prefWidth="78.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="37.0" layoutX="26.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../recursos/ActividadesIcon.png" />
+                  <Image url="@../../recursos/iconActividades.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="26.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../recursos/cambiosIcon.png" />
+                  <Image url="@../../recursos/iconCambiosSelected.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="26.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/solicitudesIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="19.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="26.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/defectosIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="26.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/participantesIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="30.0" layoutX="26.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/bitacoraIcon.png" />
                </image>
             </ImageView>
-            <Label layoutX="9.0" layoutY="75.0" text="Actividades" textFill="#000000c1" />
-            <Label layoutX="17.0" layoutY="138.0" text="Cambios" />
+            <Label layoutX="11.0" layoutY="67.0" text="Actividades" textFill="#000000c1" />
+            <Label layoutX="16.0" layoutY="131.0" text="Cambios" textFill="#000000b4" />
             <Label layoutX="9.0" layoutY="202.0" text="Solicitudes" />
-            <Label layoutX="14.0" layoutY="281.0" text="Defectos" />
+            <Label layoutX="16.0" layoutY="274.0" text="Defectos" />
             <Label layoutX="4.0" layoutY="340.0" text="Participantes" />
-            <Label layoutX="18.0" layoutY="404.0" text="Bitacora" />
+            <Label layoutX="21.0" layoutY="404.0" text="Bitacora" />
          </children>
       </Pane>
    </children>
