@@ -1,16 +1,9 @@
 package sistemadcuv.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -19,16 +12,17 @@ import sistemadcuv.modelo.pojo.ResponsableDeProyecto;
 import sistemadcuv.utils.Utilidades;
 
 
-public class FXMLListadoDeActividadesController implements Initializable {
+public class FXMLListadoDeCambiosController implements Initializable {
 
-    private Desarrollador desarrolladorSesion;
-    private ResponsableDeProyecto responsableSesion;
     @FXML
     private Label lbUsuarioActivo;
+    private Desarrollador desarrolladorSesion;
+    private ResponsableDeProyecto responsableSesion;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }    
 
     @FXML
@@ -67,14 +61,10 @@ public class FXMLListadoDeActividadesController implements Initializable {
         Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
         Utilidades.irVentanaSolicitudes(escenarioBase, desarrolladorSesion, responsableSesion);
     }
-    public void inicializarInformacion(Desarrollador desarrolladorSesion,ResponsableDeProyecto responsableSesion){
-        this.desarrolladorSesion = desarrolladorSesion;
-        this.responsableSesion = responsableSesion;
-        cargarInformacionUsuario();
-    }
 
-    private void cargarInformacionUsuario() {
-        
+    public void inicializarInformacion(Desarrollador desarrollador, ResponsableDeProyecto responsable) {
+        this.desarrolladorSesion = desarrollador;
+        this.responsableSesion = responsable;
     }
-
+    
 }

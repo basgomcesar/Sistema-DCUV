@@ -1,16 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package sistemadcuv.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -18,17 +15,24 @@ import sistemadcuv.modelo.pojo.Desarrollador;
 import sistemadcuv.modelo.pojo.ResponsableDeProyecto;
 import sistemadcuv.utils.Utilidades;
 
-
-public class FXMLListadoDeActividadesController implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author Cesar
+ */
+public class FXMLListadoDeSolicitudesDeCambioController implements Initializable {
 
     private Desarrollador desarrolladorSesion;
     private ResponsableDeProyecto responsableSesion;
     @FXML
     private Label lbUsuarioActivo;
 
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }    
 
     @FXML
@@ -62,19 +66,9 @@ public class FXMLListadoDeActividadesController implements Initializable {
         Utilidades.irVentanaBitacoraGeneral(escenarioBase, desarrolladorSesion, responsableSesion);
     }
 
-    @FXML
-    private void btnSolicitudes(MouseEvent event) {
-        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
-        Utilidades.irVentanaSolicitudes(escenarioBase, desarrolladorSesion, responsableSesion);
+    public void inicializarInformacion(Desarrollador desarrollador, ResponsableDeProyecto responsable) {
+        this.desarrolladorSesion = desarrollador;
+        this.responsableSesion = responsable;
     }
-    public void inicializarInformacion(Desarrollador desarrolladorSesion,ResponsableDeProyecto responsableSesion){
-        this.desarrolladorSesion = desarrolladorSesion;
-        this.responsableSesion = responsableSesion;
-        cargarInformacionUsuario();
-    }
-
-    private void cargarInformacionUsuario() {
-        
-    }
-
+    
 }

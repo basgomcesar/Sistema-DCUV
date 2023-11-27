@@ -9,10 +9,6 @@
             <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/conexionBD.java</file>
             <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/pojo/Desarrollador.java</file>
         </group>
-        <group>
-            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/recursos/UV.png</file>
-            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLListadoDeActividadesController.java</file>
-            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLInicioSesionController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

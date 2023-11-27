@@ -95,41 +95,15 @@ public class FXMLInicioSesionController implements Initializable {
     private void irPantallaPrincipalDesarrollador(Desarrollador desarrollador) {
         Utilidades.mostrarAletarSimple("Bienvenida", "Bienvenido al sistema desarrollador "+
                 desarrollador.getNombreCompleto(), Alert.AlertType.INFORMATION);
-        try {
-            Stage escenarioBase = (Stage) tfUsuario.getScene().getWindow();
-            FXMLLoader loader = Utilidades.cargarVista("vistas/FXMLListadoDeActividades.fxml");
-            Parent vista = loader.load();
-            FXMLListadoDeActividadesController controlador = loader.getController();
-            controlador.inicializarInformacion(desarrollador, null);
-            Scene escena = new Scene(vista);
-            escenarioBase.setScene(escena);
-            escenarioBase.show();
-            escenarioBase.setTitle("Listado de actividades");
-        } catch (IOException ex) {
-            Utilidades.mostrarAletarSimple("Error al cargar ventana", 
-                    ex.getMessage(), 
-                    Alert.AlertType.INFORMATION);
-        }
+        Stage escenarioBase = (Stage) tfUsuario.getScene().getWindow();
+        Utilidades.irVentanaActividades(escenarioBase, desarrollador, null);
     }
 
     private void irPantallaPrincipalResponsable(ResponsableDeProyecto responsable) {
         Utilidades.mostrarAletarSimple("Bienvenida", "Bienvenido al sistema responsable "+
             responsable.getNombreCompleto(), Alert.AlertType.INFORMATION);
-        try {
-            Stage escenarioBase = (Stage) tfUsuario.getScene().getWindow();
-            FXMLLoader loader = Utilidades.cargarVista("vistas/FXMLListadoDeActividades.fxml");
-            Parent vista = loader.load();
-            FXMLListadoDeActividadesController controlador = loader.getController();
-            controlador.inicializarInformacion(null, responsable);
-            Scene escena = new Scene(vista);
-            escenarioBase.setScene(escena);
-            escenarioBase.show();
-            escenarioBase.setTitle("Listado de actividades");
-        } catch (IOException ex) {
-            Utilidades.mostrarAletarSimple("Error al cargar ventana", 
-                    ex.getMessage(), 
-                    Alert.AlertType.INFORMATION);
-        }
+        Stage escenarioBase = (Stage) tfUsuario.getScene().getWindow();        
+        Utilidades.irVentanaActividades(escenarioBase, null, responsable);
     }
     
 }

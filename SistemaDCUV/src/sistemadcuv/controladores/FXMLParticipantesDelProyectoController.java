@@ -21,12 +21,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sistemadcuv.modelo.dao.ProyectoDAO;
 import sistemadcuv.utils.Utilidades;
+import javafx.util.Callback;
 
 public class FXMLParticipantesDelProyectoController implements Initializable {
 
@@ -52,10 +55,11 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
         configurarTabla();
     }    
 
-    void inicializarInformacion(Desarrollador desarrolladorSesion, ResponsableDeProyecto responsableSesion) {
+    public void inicializarInformacion(Desarrollador desarrolladorSesion, ResponsableDeProyecto responsableSesion) {
         this.desarrolladorSesion = desarrolladorSesion;
         this.responsableSesion = responsableSesion;
         cargarInformacion();
+
     }
 
     private void cargarInformacion() {
@@ -73,7 +77,27 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
     private void configurarTabla() {
         this.colNombreDesarrollador.setCellValueFactory(new PropertyValueFactory("nombreCompleto"));
         this.colCorreo.setCellValueFactory(new PropertyValueFactory("correo"));
-        this.colEliminar.setCellValueFactory(new PropertyValueFactory("eliminar"));
+//        this.colEliminar.setCellFactory(column ->{
+//            return new TableCell <Desarrollador, Boolean>(){
+//                final Button btnEliminar = new Button("Eliminar");
+//                {
+//                    btnEliminar.setOnAction(event ->{
+//                        Desarrollador desarrollador = getTableView().getItems().get(getIndex());
+//                        //ELIMINAR DESARROLLADOR DAO
+//                        System.out.println("DESARROLLADOR "+desarrollador.getNombreCompleto());
+//                    });
+//                }
+//                @Override
+//                protected void updateItem(Boolean item, boolean empty){
+//                    super.updateItem(item, empty);
+//                    if(empty){
+//                        setGraphic(null);
+//                    }else{
+//                        setGraphic(btnEliminar);
+//                    }
+//                }
+//            };
+//        });
     }
     private void obtenerInformacion(int idProyecto){
         HashMap<String, Object> respuesta = ProyectoDAO.obtenerDesarrolladoresPorProyecto(idProyecto);
@@ -90,6 +114,43 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
     }
 
     @FXML
+    private void btnActividades(MouseEvent event) {
+        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
+        Utilidades.irVentanaActividades(escenarioBase, desarrolladorSesion, responsableSesion);
+    }
+
+    @FXML
+    private void btnCambios(MouseEvent event) {
+        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
+        Utilidades.irVentanaListadoDeCambios(escenarioBase, desarrolladorSesion, responsableSesion);
+    }
+
+
+    @FXML
+    private void btnDefectos(MouseEvent event) {
+        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
+        Utilidades.irVentanaDefectos(escenarioBase, desarrolladorSesion, responsableSesion);
+    }
+
+    @FXML
+    private void btnParticipantes(MouseEvent event) {
+        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
+        Utilidades.irVentanaParticipantes(escenarioBase, desarrolladorSesion, responsableSesion);
+    }
+
+    @FXML
+    private void btnBitacora(MouseEvent event) {
+        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
+        Utilidades.irVentanaBitacoraGeneral(escenarioBase, desarrolladorSesion, responsableSesion);
+    }
+
+    @FXML
+    private void btnSolicitudes(MouseEvent event) {
+        Stage escenarioBase = (Stage)lbUsuarioActivo.getScene().getWindow();
+        Utilidades.irVentanaSolicitudes(escenarioBase, desarrolladorSesion, responsableSesion);
+    }
+
+    @FXML
     private void clicAgregarParticipante(ActionEvent event) {
         try {
             FXMLLoader load = Utilidades.cargarVista("vistas/FXMLRegistrarDesarrollador.fxml");
@@ -103,6 +164,6 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
             escenario.showAndWait();
         } catch (IOException ex) {
             Logger.getLogger(FXMLParticipantesDelProyectoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }        
     }
 }
