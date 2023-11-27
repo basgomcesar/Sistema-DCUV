@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import sistemadcuv.utils.Constantes;
 
-public class ConexionBD {
+public class conexionBD {
     public static final String URL_CONEXION = "jdbc:mysql://" + Constantes.HOSTNAME + ":" + Constantes.PUERTO
             + "/" + Constantes.NOMBRE_BD + "?allowPublicKeyRetriavle=true&useSSL=false";
     
