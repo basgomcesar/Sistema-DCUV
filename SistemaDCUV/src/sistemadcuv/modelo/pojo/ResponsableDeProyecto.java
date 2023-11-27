@@ -2,9 +2,13 @@ package sistemadcuv.modelo.pojo;
 
 public class ResponsableDeProyecto {
     
+    private int idResponsable;
     private String nombreCompleto;
     private int numeroPersonal;
     private String correoElectronico;
+    private String contrasenia;
+    private int idProyecto;
+    private String nombreProyecto;
 
     public ResponsableDeProyecto() {
     }
@@ -13,6 +17,22 @@ public class ResponsableDeProyecto {
         this.nombreCompleto = nombreCompleto;
         this.numeroPersonal = numeroPersonal;
         this.correoElectronico = correoElectronico;
+    }
+
+    public int getIdResponsable() {
+        return idResponsable;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public int getIdProyecto() {
+        return idProyecto;
+    }
+
+    public String getNombreProyecto() {
+        return nombreProyecto;
     }
 
     public String getNombreCompleto() {
@@ -37,6 +57,22 @@ public class ResponsableDeProyecto {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public void setIdResponsable(int idResponsable) {
+        this.idResponsable = idResponsable;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
+    }
+
+    public void setNombreProyecto(String nombreProyecto) {
+        this.nombreProyecto = nombreProyecto;
     }
 
 }

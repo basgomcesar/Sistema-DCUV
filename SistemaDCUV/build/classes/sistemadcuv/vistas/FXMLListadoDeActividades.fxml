@@ -15,32 +15,32 @@
    <children>
       <Pane prefHeight="450.0" prefWidth="83.0" style="-fx-background-color: #F9FAFB; -fx-border-radius: 10; -fx-background-radius: 30;">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="35.0" onMouseClicked="#btnActividades" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/iconActividadesSelected.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="100.0" onMouseClicked="#btnCambios" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/cambiosIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="163.0" onMouseClicked="#btnSolicitudes" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/solicitudesIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="19.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="19.0" layoutY="241.0" onMouseClicked="#btnDefectos" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/defectosIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="18.0" layoutY="309.0" onMouseClicked="#btnParticipantes" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/participantesIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="20.0" layoutY="365.0" onMouseClicked="#btnBitacora" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../recursos/bitacoraIcon.png" />
                </image>
@@ -80,7 +80,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="609.0" layoutY="32.0" text="Usuario XXX">
+      <Label fx:id="lbUsuarioActivo" layoutX="609.0" layoutY="32.0" text="Usuario XXX">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
