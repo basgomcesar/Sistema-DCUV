@@ -98,7 +98,6 @@ public class Utilidades {
             escenarioBase.show();
             escenarioBase.setTitle("Listado de solicitudes de cambio");
         } catch (IOException ex) {
-            ex.printStackTrace();
             Utilidades.mostrarAletarSimple("Error al cargar ventana", 
                     ex.getMessage(), 
                     Alert.AlertType.INFORMATION);
