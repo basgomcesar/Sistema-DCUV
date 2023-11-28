@@ -2,6 +2,7 @@ package sistemadcuv.modelo.pojo;
 
 public class Cambio {
     
+    private int idCambio;
     private String accionPropuesta;
     private String descripcion;
     private String esfuerzo;
@@ -12,11 +13,14 @@ public class Cambio {
     private String nombre;
     private String razonCambio;
     private String tipo;
+    private int idDesarrollador;
+    private String desarrollador;
 
     public Cambio() {
     }
 
-    public Cambio(String accionPropuesta, String descripcion, String esfuerzo, String estado, String fechaInicio, String fechaFin, String impacto, String nombre, String razonCambio, String tipo) {
+    public Cambio(int idCambio, String accionPropuesta, String descripcion, String esfuerzo, String estado, String fechaInicio, String fechaFin, String impacto, String nombre, String razonCambio, String tipo, int idDesarrollador, String desarrollador) {
+        this.idCambio = idCambio;
         this.accionPropuesta = accionPropuesta;
         this.descripcion = descripcion;
         this.esfuerzo = esfuerzo;
@@ -27,8 +31,34 @@ public class Cambio {
         this.nombre = nombre;
         this.razonCambio = razonCambio;
         this.tipo = tipo;
+        this.idDesarrollador = idDesarrollador;
+        this.desarrollador = desarrollador;
     }
 
+    public int getIdDesarrollador() {
+        return idDesarrollador;
+    }
+
+    public void setIdDesarrollador(int idDesarrollador) {
+        this.idDesarrollador = idDesarrollador;
+    }
+
+    public int getIdCambio() {
+        return idCambio;
+    }
+
+    public void setIdCambio(int idCambio) {
+        this.idCambio = idCambio;
+    }
+
+    public String getDesarrollador() {
+        return desarrollador;
+    }
+
+    public void setDesarrollador(String desarrollador) {
+        this.desarrollador = desarrollador;
+    }
+    
     public String getAccionPropuesta() {
         return accionPropuesta;
     }
