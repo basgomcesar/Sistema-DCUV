@@ -2,13 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="PROGRAMACION">
-            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/pojo/ResponsableDeProyecto.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/pojo/Proyecto.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/utils/Constantes.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/conexionBD.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/pojo/Desarrollador.java</file>
-        </group>
         <group/>
+        <group name="PROGRAMACION">
+            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/pojo/Cambio.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/dao/SolicitudDAO.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/dao/CambioDAO.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLListadoDeSolicitudesDeCambioController.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLBitacoraDeCambiosGeneralController.java</file>
+        </group>
     </open-files>
 </project-private>
