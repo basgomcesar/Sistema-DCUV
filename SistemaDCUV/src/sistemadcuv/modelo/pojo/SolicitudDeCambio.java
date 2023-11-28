@@ -2,7 +2,6 @@ package sistemadcuv.modelo.pojo;
 
 public class SolicitudDeCambio {
     
-    private int idSolicitud;
     private String nombre;
     private String accionPropuesta;
     private String descripcion;
@@ -12,14 +11,11 @@ public class SolicitudDeCambio {
     private String impacto;    
     private int numSolicitud;
     private String razon;
-    private int idDesarrollador;
-    private String nombreDesarrollador;
 
     public SolicitudDeCambio() {
     }
 
-    public SolicitudDeCambio(int idSolicitud, String nombre, String accionPropuesta, String descripcion, String estatus, String fechaRegistro, String fechaAprobacion, String impacto, int numSolicitud, String razon, int idDesarrollador, String nombreDesarrollador) {
-        this.idSolicitud = idSolicitud;
+    public SolicitudDeCambio(String nombre, String accionPropuesta, String descripcion, String estatus, String fechaRegistro, String fechaAprobacion, String impacto, int numSolicitud, String razon) {
         this.nombre = nombre;
         this.accionPropuesta = accionPropuesta;
         this.descripcion = descripcion;
@@ -29,32 +25,6 @@ public class SolicitudDeCambio {
         this.impacto = impacto;
         this.numSolicitud = numSolicitud;
         this.razon = razon;
-        this.idDesarrollador = idDesarrollador;
-        this.nombreDesarrollador = nombreDesarrollador;
-    }
-
-    public int getIdDesarrollador() {
-        return idDesarrollador;
-    }
-
-    public void setIdDesarrollador(int idDesarrollador) {
-        this.idDesarrollador = idDesarrollador;
-    }
-
-    public String getNombreDesarrollador() {
-        return nombreDesarrollador;
-    }
-
-    public void setNombreDesarrollador(String nombreDesarrollador) {
-        this.nombreDesarrollador = nombreDesarrollador;
-    }
-
-    public int getIdSolicitud() {
-        return idSolicitud;
-    }
-
-    public void setIdSolicitud(int idSolicitud) {
-        this.idSolicitud = idSolicitud;
     }
 
     public String getNombre() {
