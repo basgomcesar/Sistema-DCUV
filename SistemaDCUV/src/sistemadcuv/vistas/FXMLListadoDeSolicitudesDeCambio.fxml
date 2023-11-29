@@ -66,7 +66,7 @@
             <Image url="@../../Imágenes/RECURSOS/8666609_user_icon.png" />
          </image>
       </ImageView>
-      <Label fx:id="lbUsuarioActivo" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="24.0" prefHeight="25.0" prefWidth="153.0" text="Usuario XYZ" textAlignment="CENTER">
+      <Label fx:id="lbUsuarioActivo" layoutX="589.0" layoutY="24.0" prefHeight="25.0" prefWidth="153.0" text="Usuario XYZ">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="16.0" />
          </font>
