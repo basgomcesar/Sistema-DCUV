@@ -14,19 +14,19 @@
 
 <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="802.0" style="-fx-background-color: F2F2F2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemadcuv.controladores.FXMLBitacoraDeCambiosGeneralController">
    <children>
-      <TableView editable="true" layoutX="93.0" layoutY="96.0" minHeight="-Infinity" prefHeight="282.0" prefWidth="676.0">
+      <TableView fx:id="tvCambios" editable="true" layoutX="93.0" layoutY="96.0" minHeight="-Infinity" prefHeight="282.0" prefWidth="676.0">
          <columns>
-            <TableColumn prefWidth="118.0" sortType="DESCENDING" text="Nombre" />
-            <TableColumn prefWidth="145.0" text="Estatus" />
-            <TableColumn minWidth="7.0" prefWidth="122.0" text="Desarrollador" />
-            <TableColumn minWidth="4.0" prefWidth="135.0" text="Fecha Inicio" />
-            <TableColumn minWidth="7.0" prefWidth="136.0" text="Fecha finalización" />
+            <TableColumn fx:id="colNombre" editable="false" prefWidth="176.0" sortType="DESCENDING" text="Nombre" />
+            <TableColumn fx:id="colEstatus" editable="false" prefWidth="105.0" text="Estatus" />
+            <TableColumn fx:id="colDesarrollador" editable="false" minWidth="7.0" prefWidth="157.0" text="Desarrollador" />
+            <TableColumn fx:id="colFechaInicio" editable="false" minWidth="4.0" prefWidth="118.0" text="Fecha Inicio" />
+            <TableColumn fx:id="colFechaFin" editable="false" minWidth="7.0" prefWidth="119.0" text="Fecha finalización" />
          </columns>
          <effect>
             <DropShadow color="#97a1a0" height="6.17" radius="2.585" width="6.17" />
          </effect>
       </TableView>
-      <TextField layoutX="93.0" layoutY="63.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="274.0" promptText="Buscar por nombre" style="-fx-background-color: FFFFFF;">
+      <TextField fx:id="tfNombre" layoutX="93.0" layoutY="63.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="274.0" promptText="Buscar por nombre" style="-fx-background-color: FFFFFF;">
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#97a1a0" height="9.41" radius="4.205" width="9.41" />
          </effect>
@@ -36,7 +36,7 @@
             <Font name="Arial Bold" size="32.0" />
          </font>
       </Label>
-      <Button layoutX="684.0" layoutY="396.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="85.0" style="-fx-background-color: #426B1F;" text="Exportar (.pdf)" textFill="WHITE">
+      <Button layoutX="684.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnExportarBitacoraCambios" prefHeight="15.0" prefWidth="85.0" style="-fx-background-color: #426B1F;" text="Exportar (.pdf)" textFill="WHITE">
          <effect>
             <DropShadow color="#7c908d" height="36.58" offsetY="1.0" radius="14.575" width="23.72" />
          </effect>
@@ -65,7 +65,7 @@
             <DropShadow blurType="ONE_PASS_BOX" color="#aab7b9" height="114.28" radius="62.910000000000004" spread="0.13" width="139.36" />
          </effect>
       </Label>
-      <Label layoutX="512.0" layoutY="29.0" text="Por desarrollador">
+      <Label layoutX="512.0" layoutY="29.0" onMouseClicked="#btnBitacoraPorDesarrollador" text="Por desarrollador">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>

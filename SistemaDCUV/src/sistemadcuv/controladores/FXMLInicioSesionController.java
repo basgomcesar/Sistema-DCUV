@@ -43,8 +43,9 @@ public class FXMLInicioSesionController implements Initializable {
         if(!esCamposVacios()){
             String usuario = tfUsuario.getText().trim();
             String contrasenia = tfContrasenia.getText().trim();
-            if(esFormatoValido()){
-                usuarioAutentificado = DesarrolladorDAO.verificarSesionDesarrollador(usuario, contrasenia);
+            if(esFormatoMatricula()){
+                
+                usuarioAutentificado = DesarrolladorDAO.verificarSesionDesarrollador(usuario, contrasenia); 
                 Desarrollador desarrollador = (Desarrollador) usuarioAutentificado.get("desarrollador");
                 if(!(desarrollador== null))
                     irPantallaPrincipalDesarrollador(desarrollador);
@@ -54,21 +55,21 @@ public class FXMLInicioSesionController implements Initializable {
                         "Por favor, asegúrate de ingresar el nombre de usuario y la contraseña correctos", 
                         Alert.AlertType.INFORMATION);
             }else{
-                if(usuario.matches("\\d+")){
-                    usuarioAutentificado = ResponsableDAO.verificarSesionResponsable(Integer.parseInt(usuario),contrasenia);
-                    ResponsableDeProyecto responsable = (ResponsableDeProyecto) usuarioAutentificado.get("responsable");
-                    if(!(responsable == null ))
-                        irPantallaPrincipalResponsable(responsable);
-                    else
-                        Utilidades.mostrarAletarSimple("Usuario incorrecto", 
-                            "Lo siento, las credenciales proporcionadas no son válidas.\n"+
-                            "Por favor, asegúrate de ingresar el nombre de usuario y la contraseña correctos", 
-                            Alert.AlertType.INFORMATION);
-                }else
+            if(usuario.matches("\\d+")){
+                usuarioAutentificado = ResponsableDAO.verificarSesionResponsable(Integer.parseInt(usuario),contrasenia);
+                ResponsableDeProyecto responsable = (ResponsableDeProyecto) usuarioAutentificado.get("responsable");
+                if(!(responsable == null ))
+                    irPantallaPrincipalResponsable(responsable);
+                else
                     Utilidades.mostrarAletarSimple("Usuario incorrecto", 
                         "Lo siento, las credenciales proporcionadas no son válidas.\n"+
                         "Por favor, asegúrate de ingresar el nombre de usuario y la contraseña correctos", 
                         Alert.AlertType.INFORMATION);
+            }else
+                Utilidades.mostrarAletarSimple("Usuario incorrecto", 
+                    "Lo siento, las credenciales proporcionadas no son válidas.\n"+
+                    "Por favor, asegúrate de ingresar el nombre de usuario y la contraseña correctos", 
+                    Alert.AlertType.INFORMATION);
             }
         }else{
             Utilidades.mostrarAletarSimple("Campos vacios", 
@@ -81,7 +82,7 @@ public class FXMLInicioSesionController implements Initializable {
         return tfUsuario.getText().trim().isEmpty() || tfContrasenia.getText().trim().isEmpty();
     }
 
-    private boolean esFormatoValido() {
+    private boolean esFormatoMatricula() {
         return tfUsuario.getText().matches(formato);
     }
 
