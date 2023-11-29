@@ -9,6 +9,11 @@
             <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/conexionBD.java</file>
             <file>file:/D:/Documents/NetBeansProjects/JavaFX/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/modelo/pojo/Desarrollador.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLParticipantesDelProyectoController.java</file>
+            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLBitacoraDeCambiosGeneralController.java</file>
+            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/utils/Utilidades.java</file>
+            <file>file:/C:/Users/Cesar/Documents/Sistema-DCUV/SistemaDCUV/src/sistemadcuv/controladores/FXMLListadoDeParticipantesParaBitacoraController.java</file>
+        </group>
     </open-files>
 </project-private>

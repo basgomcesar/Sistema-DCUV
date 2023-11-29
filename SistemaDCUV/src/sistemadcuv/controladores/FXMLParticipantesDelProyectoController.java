@@ -1,5 +1,7 @@
 package sistemadcuv.controladores;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -7,8 +9,12 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import sistemadcuv.modelo.pojo.Desarrollador;
@@ -16,6 +22,7 @@ import sistemadcuv.modelo.pojo.ResponsableDeProyecto;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -24,8 +31,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import sistemadcuv.modelo.dao.ProyectoDAO;
 import sistemadcuv.utils.Utilidades;
@@ -42,13 +51,15 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
     @FXML
     private TableView<Desarrollador> tvDesarrolladores;
     @FXML
-    private TableColumn colNombreDesarrollador;
+    private TableColumn<Desarrollador, String> colNombreDesarrollador;
     @FXML
-    private TableColumn colCorreo;
+    private TableColumn<Desarrollador, String> colCorreo;
     @FXML
-    private TableColumn colEliminar;
+    private TableColumn<Desarrollador, String> colEliminar;
     @FXML
     private Button btnAgregarParticipante;
+    @FXML
+    private TextField tfBusquedaNombre;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -77,27 +88,7 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
     private void configurarTabla() {
         this.colNombreDesarrollador.setCellValueFactory(new PropertyValueFactory("nombreCompleto"));
         this.colCorreo.setCellValueFactory(new PropertyValueFactory("correo"));
-//        this.colEliminar.setCellFactory(column ->{
-//            return new TableCell <Desarrollador, Boolean>(){
-//                final Button btnEliminar = new Button("Eliminar");
-//                {
-//                    btnEliminar.setOnAction(event ->{
-//                        Desarrollador desarrollador = getTableView().getItems().get(getIndex());
-//                        //ELIMINAR DESARROLLADOR DAO
-//                        System.out.println("DESARROLLADOR "+desarrollador.getNombreCompleto());
-//                    });
-//                }
-//                @Override
-//                protected void updateItem(Boolean item, boolean empty){
-//                    super.updateItem(item, empty);
-//                    if(empty){
-//                        setGraphic(null);
-//                    }else{
-//                        setGraphic(btnEliminar);
-//                    }
-//                }
-//            };
-//        });
+        configurarColumnaEliminar();
     }
     private void obtenerInformacion(int idProyecto){
         HashMap<String, Object> respuesta = ProyectoDAO.obtenerDesarrolladoresPorProyecto(idProyecto);
@@ -107,6 +98,7 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
             ArrayList<Desarrollador> lista = desarrolladorDAO;
             desarrolladores.addAll(lista);
             tvDesarrolladores.setItems(desarrolladores);
+            busquedaTablaNombre();
         }else{
             Utilidades.mostrarAletarSimple("Error de carga", (String) respuesta.get("mensaje"),
                     Alert.AlertType.ERROR);
@@ -165,5 +157,69 @@ public class FXMLParticipantesDelProyectoController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLParticipantesDelProyectoController.class.getName()).log(Level.SEVERE, null, ex);
         }        
+    }
+    private void configurarColumnaEliminar(){
+        Callback<TableColumn<Desarrollador, String>, TableCell<Desarrollador, String>> cellFoctory = (TableColumn<Desarrollador, String> param) -> {
+            final TableCell<Desarrollador, String> cell = new TableCell<Desarrollador, String>(){
+                @Override
+                public void updateItem(String item, boolean empty){
+                    super.updateItem(item, empty);
+                    if(empty){
+                        setGraphic(null);
+                        setText(null);
+                    }else{
+                        FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
+                        deleteIcon.setStyle(
+                                " -fx-cursor: hand ;"
+                                + "-glyph-size:28px;"
+                                + "-fx-fill:#ff1744;"
+                        );
+                        deleteIcon.setOnMouseClicked((MouseEvent event) -> {
+                                Desarrollador desarrollador = tvDesarrolladores.getSelectionModel().getSelectedItem();
+                                if(Utilidades.mostrarDialogoConfirmacion("Alerta de confirmación ", 
+                                        "¿Esta seguro de eliminar al desarrollador " + desarrollador.getNombreCompleto()+
+                                                "? ya que al eliminar no podra deshacer los cambios"))
+                                    eliminarDesarrollador();
+                        });
+                        HBox managebtn = new HBox( deleteIcon);
+                        managebtn.setStyle("-fx-alignment:center");
+                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
+                        setGraphic(managebtn);
+                        setText(null);
+                    }
+                }
+            };
+            return cell;
+        };
+        colEliminar.setCellFactory(cellFoctory);
+    }
+    private void busquedaTablaNombre(){
+        if(!desarrolladores.isEmpty()){
+            FilteredList<Desarrollador> filtradoNombre = new FilteredList<>(desarrolladores, p -> true);
+            tfBusquedaNombre.textProperty().addListener(new ChangeListener<String>(){
+                @Override
+                public void changed (ObservableValue<? extends String> observable,
+                    String oldValue, String newValue){
+                    filtradoNombre.setPredicate(nombreFiltro ->{
+                        if(newValue == null || newValue.isEmpty()){
+                            return true;
+                        }
+                        String lowerNewValue = newValue.toLowerCase();
+                        if(nombreFiltro.getNombreCompleto().trim().toLowerCase().contains(lowerNewValue)){
+                            return true;
+                        }else if(nombreFiltro.getNombreCompleto().trim().toLowerCase().contains(newValue)){
+                            return true;
+                        }
+                        return false;
+                    });
+                }
+            });
+            SortedList<Desarrollador> sortedDesarrolladores = new SortedList<>(filtradoNombre);
+            sortedDesarrolladores.comparatorProperty().bind(tvDesarrolladores.comparatorProperty());
+            tvDesarrolladores.setItems(sortedDesarrolladores);
+        }
+    }
+    private void eliminarDesarrollador(){
+        
     }
 }
