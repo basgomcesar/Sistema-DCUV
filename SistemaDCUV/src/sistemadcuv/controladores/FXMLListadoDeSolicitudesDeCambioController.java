@@ -63,6 +63,7 @@ public class FXMLListadoDeSolicitudesDeCambioController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
+        
     }
     
     public void inicializarInformacion(Desarrollador desarrollador, ResponsableDeProyecto responsable) {
@@ -99,8 +100,8 @@ public class FXMLListadoDeSolicitudesDeCambioController implements Initializable
             ArrayList<SolicitudDeCambio> lista = (ArrayList<SolicitudDeCambio>) respuesta.get("solicitudes");
             solicitudes.addAll(lista);
             tvListadoSolicitudes.setItems(solicitudes);
-            busquedaTablaFechas();
             busquedaTablaNombre();
+            busquedaTablaFechas();
         }else{
             Utilidades.mostrarAletarSimple("Error", respuesta.get("mensaje").toString(), Alert.AlertType.ERROR);
         }
