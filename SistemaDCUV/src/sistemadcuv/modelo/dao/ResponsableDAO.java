@@ -31,6 +31,7 @@ public class ResponsableDAO {
                     responsable.setNombreCompleto(resultado.getString("nombreCompleto"));
                     responsable.setNumeroPersonal(resultado.getInt("numeroDePersonal"));
                     responsable.setCorreoElectronico(resultado.getString("correoElectronico"));
+                    responsable.setIdProyecto(resultado.getInt("Proyecto_idProyecto"));
                     responsable.setNombreProyecto(resultado.getString("nombre"));
                     respuesta.put("responsable", responsable);
                 }else{

@@ -13,7 +13,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -152,6 +155,25 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
         }catch(IOException e){
             Utilidades.mostrarAletarSimple("Error de Exportación", "No se ha podido guardar el archivo.",
                     Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    private void btnBitacoraPorDesarrollador(MouseEvent event) {
+        try {
+            Stage escenarioBase = (Stage) tfNombre.getScene().getWindow();
+            FXMLLoader loader = Utilidades.cargarVista("vistas/FXMLListadoDeParticipantesParaBitacora.fxml");
+            Parent vista = loader.load();
+            FXMLListadoDeParticipantesParaBitacoraController controlador = loader.getController();
+            controlador.inicializarInformacion(desarrolladorSesion, responsableSesion);
+            Scene escena = new Scene(vista);
+            escenarioBase.setScene(escena);
+            escenarioBase.show();
+            escenarioBase.setTitle("Listado de participantes para bitacora");
+        } catch (IOException ex) {
+            Utilidades.mostrarAletarSimple("Error al cargar ventana", 
+                    ex.getMessage(), 
+                    Alert.AlertType.INFORMATION);
         }
     }
 }
