@@ -5,26 +5,18 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +36,6 @@ import sistemadcuv.modelo.dao.CambioDAO;
 import sistemadcuv.modelo.pojo.Cambio;
 import sistemadcuv.modelo.pojo.Desarrollador;
 import sistemadcuv.modelo.pojo.ResponsableDeProyecto;
-import sistemadcuv.modelo.pojo.SolicitudDeCambio;
 import sistemadcuv.utils.Utilidades;
 
 
@@ -229,6 +220,7 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
                     ex.getMessage(), 
                     Alert.AlertType.INFORMATION);
         }
+    }
     // Método para obtener una celda con formato personalizado
     private PdfPCell getCell(String contenido, boolean esEncabezado) {
         PdfPCell cell = new PdfPCell(new Paragraph(contenido));
