@@ -38,5 +38,9 @@ public class FXMLBitacoraDeCambiosDesarrolladorController implements Initializab
     @FXML
     private void btnSolicitudes(MouseEvent event) {
     }
+
+    @FXML
+    private void btnBitacoraGeneral(MouseEvent event) {
+    }
     
 }
