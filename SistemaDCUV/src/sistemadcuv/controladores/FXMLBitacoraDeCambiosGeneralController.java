@@ -17,8 +17,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +42,7 @@ import sistemadcuv.modelo.dao.CambioDAO;
 import sistemadcuv.modelo.pojo.Cambio;
 import sistemadcuv.modelo.pojo.Desarrollador;
 import sistemadcuv.modelo.pojo.ResponsableDeProyecto;
+import sistemadcuv.modelo.pojo.SolicitudDeCambio;
 import sistemadcuv.utils.Utilidades;
 
 
@@ -63,6 +68,7 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
     private TextField tfNombre;
     
     private ObservableList<Cambio> cambios;
+    private SortedList<Cambio> sortedListaCambios;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -101,8 +107,40 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
             ArrayList<Cambio> lista = (ArrayList<Cambio>) respuesta.get("cambios");
             cambios.addAll(lista);
             tvCambios.setItems(cambios);
+            FilteredList<Cambio> filtradoBusquedas = new FilteredList<>(cambios, p-> true);
+            busquedaTablaNombre(filtradoBusquedas);
         }else{
             Utilidades.mostrarAletarSimple("Error", respuesta.get("mensaje").toString(), Alert.AlertType.ERROR);
+        }
+    }
+    
+    private void busquedaTablaNombre(FilteredList<Cambio> filtradoBusquedas){
+        if(cambios.size() > 0){
+            tfNombre.textProperty().addListener(new ChangeListener<String>(){
+                
+                @Override
+                public void changed(ObservableValue<? extends String> observable, 
+                        String oldValue, String newValue) {
+                    filtradoBusquedas.setPredicate(nombreFiltro -> {
+                        //CASO DEFAULT
+                        if(newValue == null || newValue.isEmpty()){
+                            return true;
+                        }
+                        //CRITERIO DE EVALUACION
+                        String lowerNewValue = newValue.toLowerCase();
+                        if(nombreFiltro.getNombre().toLowerCase().contains(lowerNewValue)){
+                            return true;
+                        } else if(nombreFiltro.getNombre().toLowerCase().contains(newValue)){
+                            return true;
+                        }
+                        return false;
+                    });
+                }
+                
+            });
+            sortedListaCambios = new SortedList<>(filtradoBusquedas);
+            sortedListaCambios.comparatorProperty().bind(tvCambios.comparatorProperty());
+            tvCambios.setItems(sortedListaCambios);
         }
     }
 
@@ -179,7 +217,7 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
                 tabla.addCell(getCell("Fecha Inicio", true));
                 tabla.addCell(getCell("Fecha Fin", true));
 
-                for (Cambio cambio : cambios) {
+                for (Cambio cambio : sortedListaCambios) {
                     tabla.addCell(getCell(cambio.getNombre(), false));
                     tabla.addCell(getCell(cambio.getEstado(), false));
                     tabla.addCell(getCell(cambio.getDesarrollador(), false));
@@ -218,14 +256,11 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
                     Alert.AlertType.INFORMATION);
         }
     }
-    // Método para obtener una celda con formato personalizado
+    
     private PdfPCell getCell(String contenido, boolean esEncabezado) {
         PdfPCell cell = new PdfPCell(new Paragraph(contenido));
 
-        // Ajusta la alineación del texto en la celda
         cell.setHorizontalAlignment(esEncabezado ? PdfPCell.ALIGN_CENTER : PdfPCell.ALIGN_CENTER);
-
-        // Ajusta el fondo de la celda (usando colores de ejemplo)
         cell.setBackgroundColor(esEncabezado ? BaseColor.LIGHT_GRAY : BaseColor.WHITE);
 
         return cell;
