@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -150,37 +152,33 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
             if (directorio != null) {
                 String rutaArchivo = directorio.getAbsolutePath() + "/BitacoraDeCambios.pdf";
                 Document documento = new Document();
+                documento.setMargins(5, 5, 40, 30);
                 PdfWriter.getInstance(documento, new FileOutputStream(rutaArchivo));
                 documento.open();
 
-                // Agrega el encabezado
-                documento.add(new Paragraph("Bitácora de Cambios"));
+                LocalDate fechaActual = LocalDate.now();
+                DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                String fechaDocumento = fechaActual.format(formatoFecha);
+                documento.add(new Paragraph("\tBitácora de Cambios"));
+                documento.add(new Paragraph("\t"+fechaDocumento));
+//                documento.add(new Paragraph(" "));
 
-                // Agrega un espacio en blanco entre el encabezado y la tabla
-                documento.add(new Paragraph(" "));
+                PdfPTable tabla = new PdfPTable(5);
 
-                // Crea la tabla y establece el número de columnas
-                PdfPTable tabla = new PdfPTable(5); // 5 columnas
-
-                // Ajusta el ancho de las columnas (puedes ajustar estos valores según tus necesidades)
-                float[] columnWidths = {2f, 2f, 2f, 2f, 2f};
+                float[] columnWidths = {10f, 6f, 8f, 6f, 6f};
                 tabla.setWidths(columnWidths);
 
-                // Ajusta el espaciado antes y después de la tabla
                 tabla.setSpacingBefore(10f);
                 tabla.setSpacingAfter(10f);
                 
-                // Ajusta la alineación del texto en la tabla
                 tabla.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                // Agrega encabezados de columna y establece el fondo de las celdas
                 tabla.addCell(getCell("Nombre", true));
                 tabla.addCell(getCell("Estado", true));
                 tabla.addCell(getCell("Desarrollador", true));
                 tabla.addCell(getCell("Fecha Inicio", true));
                 tabla.addCell(getCell("Fecha Fin", true));
 
-                // Agrega los datos y establece el fondo de las celdas
                 for (Cambio cambio : cambios) {
                     tabla.addCell(getCell(cambio.getNombre(), false));
                     tabla.addCell(getCell(cambio.getEstado(), false));
@@ -189,7 +187,6 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
                     tabla.addCell(getCell(cambio.getFechaFin(), false));
                 }
 
-                // Agrega la tabla al documento
                 documento.add(tabla);
 
                 documento.close();
