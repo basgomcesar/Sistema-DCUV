@@ -220,6 +220,7 @@ public class FXMLBitacoraDeCambiosGeneralController implements Initializable {
                     ex.getMessage(), 
                     Alert.AlertType.INFORMATION);
         }
+    }
     // Método para obtener una celda con formato personalizado
     private PdfPCell getCell(String contenido, boolean esEncabezado) {
         PdfPCell cell = new PdfPCell(new Paragraph(contenido));
