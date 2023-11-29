@@ -7,7 +7,7 @@ import sistemadcuv.utils.Constantes;
 
 public class ConexionBD {
     public static final String URL_CONEXION = "jdbc:mysql://" + Constantes.HOSTNAME + ":" + Constantes.PUERTO
-            + "/" + Constantes.NOMBRE_BD + "?allowPublicKeyRetriavle=true&useSSL=false";
+            + "/" + Constantes.NOMBRE_BD + "?allowPublicKeyRetrieval=true&useSSL=false";
     
     public static Connection obtenerConexion(){
         Connection conexionBD = null;
