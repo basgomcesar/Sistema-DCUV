@@ -95,22 +95,22 @@ public class FXMLListadoDeCambiosController implements Initializable {
             ArrayList<Cambio> lista = (ArrayList<Cambio>) respuesta.get("cambios");
             cambios.addAll(lista);
             tvCambios.setItems(cambios);
-            busquedaTablaFechas();
-            busquedaTablaNombre();
+            FilteredList<Cambio> filtradoBusquedas = new FilteredList<>(cambios, p-> true);
+            busquedaTablaFechas(filtradoBusquedas);
+            busquedaTablaNombre(filtradoBusquedas);
         }else{
             Utilidades.mostrarAletarSimple("Error", respuesta.get("mensaje").toString(), Alert.AlertType.ERROR);
         }
     }
     
-    private void busquedaTablaNombre(){
+    private void busquedaTablaNombre(FilteredList<Cambio> filtradoBusquedas){
         if(cambios.size() >= 1){
-            FilteredList<Cambio> filtradoNombre = new FilteredList<>(cambios, p-> true);
             tfNombre.textProperty().addListener(new ChangeListener<String>(){
                 
                 @Override
                 public void changed(ObservableValue<? extends String> observable, 
                         String oldValue, String newValue) {
-                    filtradoNombre.setPredicate(nombreFiltro -> {
+                    filtradoBusquedas.setPredicate(nombreFiltro -> {
                         //CASO DEFAULT
                         if(newValue == null || newValue.isEmpty()){
                             return true;
@@ -127,25 +127,24 @@ public class FXMLListadoDeCambiosController implements Initializable {
                 }
                 
             });
-            SortedList<Cambio> sortedListaCambios = new SortedList<>(filtradoNombre);
+            SortedList<Cambio> sortedListaCambios = new SortedList<>(filtradoBusquedas);
             sortedListaCambios.comparatorProperty().bind(tvCambios.comparatorProperty());
             tvCambios.setItems(sortedListaCambios);
         }
     }
     
-    private void busquedaTablaFechas(){        
+    private void busquedaTablaFechas(FilteredList<Cambio> filtradoBusquedas){        
         if (cambios.size() >= 1) {
-            FilteredList<Cambio> filtradoFechas = new FilteredList<>(cambios, p -> true);
 
             dpFechaDesde.valueProperty().addListener((observable, oldValue, newValue) -> {
-                filtrarCambiosPorRangoFecha(filtradoFechas);
+                filtrarCambiosPorRangoFecha(filtradoBusquedas);
             });
 
             dpFechaHasta.valueProperty().addListener((observable, oldValue, newValue) -> {
-                filtrarCambiosPorRangoFecha(filtradoFechas);
+                filtrarCambiosPorRangoFecha(filtradoBusquedas);
             });
 
-            SortedList<Cambio> sortedListaFechas = new SortedList<>(filtradoFechas);
+            SortedList<Cambio> sortedListaFechas = new SortedList<>(filtradoBusquedas);
             sortedListaFechas.comparatorProperty().bind(tvCambios.comparatorProperty());
             tvCambios.setItems(sortedListaFechas);
         }
@@ -163,15 +162,15 @@ public class FXMLListadoDeCambiosController implements Initializable {
 
             // CRITERIO DE EVALUACION
             DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate fechaSolicitud = LocalDate.parse(fechasFiltro.getFechaInicio(), formatoFecha);
+            LocalDate fechaCambio = LocalDate.parse(fechasFiltro.getFechaInicio(), formatoFecha);
 
             if (fechaInicio != null && fechaFin != null) {
-                return fechaSolicitud != null && (fechaSolicitud.isEqual(fechaInicio) || fechaSolicitud.isEqual(fechaFin) ||
-                        (fechaSolicitud.isAfter(fechaInicio) && fechaSolicitud.isBefore(fechaFin)));
+                return fechaCambio != null && (fechaCambio.isEqual(fechaInicio) || fechaCambio.isEqual(fechaFin) ||
+                        (fechaCambio.isAfter(fechaInicio) && fechaCambio.isBefore(fechaFin)));
             } else if (fechaInicio != null) {
-                return fechaSolicitud != null && fechaSolicitud.isEqual(fechaInicio);
+                return fechaCambio != null && fechaCambio.isEqual(fechaInicio);
             } else {
-                return fechaSolicitud != null && fechaSolicitud.isEqual(fechaFin);
+                return fechaCambio != null && fechaCambio.isEqual(fechaFin);
             }
         });
     }

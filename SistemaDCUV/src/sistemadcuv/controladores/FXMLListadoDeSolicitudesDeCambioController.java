@@ -99,22 +99,22 @@ public class FXMLListadoDeSolicitudesDeCambioController implements Initializable
             ArrayList<SolicitudDeCambio> lista = (ArrayList<SolicitudDeCambio>) respuesta.get("solicitudes");
             solicitudes.addAll(lista);
             tvListadoSolicitudes.setItems(solicitudes);
-            busquedaTablaFechas();
-            busquedaTablaNombre();
+            FilteredList<SolicitudDeCambio> filtradoBusquedas = new FilteredList<>(solicitudes, p-> true);
+            busquedaTablaFechas(filtradoBusquedas);
+            busquedaTablaNombre(filtradoBusquedas);
         }else{
             Utilidades.mostrarAletarSimple("Error", respuesta.get("mensaje").toString(), Alert.AlertType.ERROR);
         }
     }
     
-    private void busquedaTablaNombre(){
+    private void busquedaTablaNombre(FilteredList<SolicitudDeCambio> filtradoBusquedas){
         if(solicitudes.size() > 0){
-            FilteredList<SolicitudDeCambio> filtradoNombre = new FilteredList<>(solicitudes, p-> true);
             tfNombre.textProperty().addListener(new ChangeListener<String>(){
                 
                 @Override
                 public void changed(ObservableValue<? extends String> observable, 
                         String oldValue, String newValue) {
-                    filtradoNombre.setPredicate(nombreFiltro -> {
+                    filtradoBusquedas.setPredicate(nombreFiltro -> {
                         //CASO DEFAULT
                         if(newValue == null || newValue.isEmpty()){
                             return true;
@@ -131,25 +131,24 @@ public class FXMLListadoDeSolicitudesDeCambioController implements Initializable
                 }
                 
             });
-            SortedList<SolicitudDeCambio> sortedListaSolicitudes = new SortedList<>(filtradoNombre);
+            SortedList<SolicitudDeCambio> sortedListaSolicitudes = new SortedList<>(filtradoBusquedas);
             sortedListaSolicitudes.comparatorProperty().bind(tvListadoSolicitudes.comparatorProperty());
             tvListadoSolicitudes.setItems(sortedListaSolicitudes);
         }
     }
     
-    private void busquedaTablaFechas(){        
+    private void busquedaTablaFechas(FilteredList<SolicitudDeCambio> filtradoBusquedas){        
         if (solicitudes.size() > 0) {
-            FilteredList<SolicitudDeCambio> filtradoFechas = new FilteredList<>(solicitudes, p -> true);
 
             dpFechaDesde.valueProperty().addListener((observable, oldValue, newValue) -> {
-                filtrarSolicitudesPorRangoFecha(filtradoFechas);
+                filtrarSolicitudesPorRangoFecha(filtradoBusquedas);
             });
 
             dpFechaHasta.valueProperty().addListener((observable, oldValue, newValue) -> {
-                filtrarSolicitudesPorRangoFecha(filtradoFechas);
+                filtrarSolicitudesPorRangoFecha(filtradoBusquedas);
             });
 
-            SortedList<SolicitudDeCambio> sortedListaFechas = new SortedList<>(filtradoFechas);
+            SortedList<SolicitudDeCambio> sortedListaFechas = new SortedList<>(filtradoBusquedas);
             sortedListaFechas.comparatorProperty().bind(tvListadoSolicitudes.comparatorProperty());
             tvListadoSolicitudes.setItems(sortedListaFechas);
         }
