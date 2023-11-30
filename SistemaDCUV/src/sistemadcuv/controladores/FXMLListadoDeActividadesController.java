@@ -2,9 +2,13 @@ package sistemadcuv.controladores;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sistemadcuv.modelo.pojo.Desarrollador;
@@ -18,6 +22,22 @@ public class FXMLListadoDeActividadesController implements Initializable {
     private ResponsableDeProyecto responsableSesion;
     @FXML
     private Label lbUsuarioActivo;
+    @FXML
+    private TextField tfBarraBusqueda;
+    @FXML
+    private DatePicker dpDesde;
+    @FXML
+    private DatePicker dpHasta;
+    @FXML
+    private TableColumn colNombre;
+    @FXML
+    private TableColumn colEstatus;
+    @FXML
+    private TableColumn colDesarrollador;
+    @FXML
+    private TableColumn colFechaInicio;
+    @FXML
+    private TableColumn colFechaFin;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,6 +88,10 @@ public class FXMLListadoDeActividadesController implements Initializable {
 
     private void cargarInformacionUsuario() {
         
+    }
+
+    @FXML
+    private void clicAgregarActividad(ActionEvent event) {
     }
 
 }
