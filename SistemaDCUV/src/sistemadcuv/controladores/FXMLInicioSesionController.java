@@ -91,6 +91,8 @@ public class FXMLInicioSesionController implements Initializable {
                 desarrollador.getNombreCompleto(), Alert.AlertType.INFORMATION);
         Stage escenarioBase = (Stage) tfUsuario.getScene().getWindow();
         Utilidades.irVentanaActividades(escenarioBase, desarrollador, null);
+        
+        
     }
 
     private void irPantallaPrincipalResponsable(ResponsableDeProyecto responsable) {
